@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:widgetss/dicegame.dart';
+//import 'package:widgetss/dicegame.dart';
+
+//import 'pageexample.dart';
+import 'scrolltest.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: DiceGame(),
+      home: ScrollTest(),
     ),
   );
 }

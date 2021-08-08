@@ -25,23 +25,30 @@ class _DiceGameState extends State<DiceGame> {
         title: Text("Dice Game"),
       ),
       drawer: Drawer(),
-      body: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          Center(
-            child: Image.asset("assets/dice$randomNo.png"),
+          Container(
+            color: Colors.amber,
+            height: double.infinity,
+            child: Image.asset("assets/bg.jpeg",fit: BoxFit.fill,),
           ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                randomNo = Random().nextInt(6) + 1;
-              });
-            },
-            child: Text(
-              "press",
-            ),
-          )
+          Column(
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset("assets/dice$randomNo.png"),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  randomNo = Random().nextInt(6) + 1;
+                });
+              },
+              child: Text(
+                "press",
+              ),
+            )
+          ],
+        ),
         ],
       ),
     );
