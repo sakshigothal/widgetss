@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:widgetss/dicegame.dart';
 
 void main() {
   runApp(
-    MaterialApp(home: LoginPage()),
+    MaterialApp(
+      home: DiceGame(),
+    ),
   );
 }
 
@@ -17,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController username = TextEditingController();
   TextEditingController pass = TextEditingController();
   String msg = "";
-  var rem=true;
+  var rem = true;
 
   @override
   Widget build(BuildContext context) {
@@ -87,11 +90,13 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       child: Text("Hit Me!"),
                     ),
-                    Checkbox(value: rem, onChanged:(val) {
-                      setState(() {
-                        this.rem=rem;
-                      });
-                    }),
+                    Checkbox(
+                        value: rem,
+                        onChanged: (val) {
+                          setState(() {
+                            this.rem = rem;
+                          });
+                        }),
                   ],
                 ),
               ),
