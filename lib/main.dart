@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:widgetss/addition.dart';
+//import 'package:widgetss/addition.dart';
+import 'package:widgetss/login.dart';
+
+import 'practice.dart';
 //import 'package:widgetss/overlapping.dart';
 //import 'package:widgetss/oddeven.dart';
 
@@ -13,7 +16,10 @@ import 'package:widgetss/addition.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Addition(),
+      // theme: ThemeData(
+      //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
+      // ),
+      home: TryCatchPage(),
     ),
   );
 }
