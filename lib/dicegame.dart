@@ -46,6 +46,14 @@ class _DiceGameState extends State<DiceGame> {
               child: Text(
                 "press",
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Back to main Screen",
+              ),
             )
           ],
         ),

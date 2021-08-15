@@ -42,7 +42,10 @@ class _TryCatchPageState extends State<TryCatchPage> {
             ),
             Text(
                 "Have a look at the video on the right. TryCatch Classes has a record of\n 100% positive reviews from our students. View our advanced customized\n courses and short term courses in Mumbai.\n"),
-                SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
+            
             Row(
               children: [
                 ElevatedButton(
@@ -61,7 +64,9 @@ class _TryCatchPageState extends State<TryCatchPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(primary: Colors.green[600],),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green[600],
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(15, 7, 15, 7),
                     child: Text(
@@ -84,11 +89,23 @@ class _TryCatchPageState extends State<TryCatchPage> {
                     ),
                   ),
                 ),
+                 Column(
+                   
+               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.network(
+                    "https://media4.giphy.com/media/26tn33aiTi1jkl6H6/200.gif"),
               ],
             ),
-            
+              ],
+              
+            ),
+           
           ],
+          
         ),
+        
       ),
     );
   }

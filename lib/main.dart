@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-//import 'package:widgetss/addition.dart';
-import 'package:widgetss/login.dart';
+//import 'package:widgetss/listviewexample.dart';
+import 'package:widgetss/onbording.dart';
 
-import 'practice.dart';
+import 'splashpage.dart';
+//import 'package:widgetss/addition.dart';
+//import 'package:widgetss/login.dart';
+
+//import 'practice.dart';
 //import 'package:widgetss/overlapping.dart';
 //import 'package:widgetss/oddeven.dart';
 
@@ -19,7 +23,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: TryCatchPage(),
+      home: SplashPage(),
     ),
   );
 }
