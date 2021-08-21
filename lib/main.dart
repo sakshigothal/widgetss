@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetss/onbording.dart';
 
 import 'splashpage.dart';
+import 'webviewpage.dart';
 //import 'package:widgetss/addition.dart';
 //import 'package:widgetss/login.dart';
 
@@ -23,7 +24,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: SplashPage(),
+      home: WebViewPage(),
     ),
   );
 }
