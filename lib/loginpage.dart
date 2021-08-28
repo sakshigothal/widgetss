@@ -115,6 +115,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Text(msg),
+                              FloatingActionButton(onPressed: (){},child: Icon(Icons.add),)
+
           ],
         ),
       ),

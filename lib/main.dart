@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 //import 'package:widgetss/listviewexample.dart';
 import 'package:widgetss/onbording.dart';
 
+import 'apitest.dart';
+import 'splash.dart';
 import 'splashpage.dart';
 import 'webviewpage.dart';
 //import 'package:widgetss/addition.dart';
@@ -24,7 +26,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: WebViewPage(),
+      home: ApiTest(),
     ),
   );
 }
