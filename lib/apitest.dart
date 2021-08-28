@@ -22,13 +22,17 @@ class _ApiTestState extends State<ApiTest> {
 
   apiCall() async {
     print("Request start ${DateTime.now()}");
-    var resp = await http.get(Uri.parse(Constants.userpostapi));
+    try {
+      var resp = await http.get(Uri.parse(Constants.userpostapi));
     print("Resp here ${DateTime.now()} ${resp.body}");
     setState(() {
       postResp = json.decode(resp.body);
     });
     
     print("jsonResp ${postResp.length}");
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
