@@ -13,6 +13,7 @@ class ApiTest extends StatefulWidget {
 
 class _ApiTestState extends State<ApiTest> {
   List postResp=[];
+  var isonline=true;
   @override
   void initState() {
     // TODO: implement initState
