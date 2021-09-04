@@ -37,8 +37,8 @@ class _KalyanApiState extends State<KalyanApi> {
             
             setState(() {
               storedata=apidecode["store_locator"];
-              print("${response.body}");
             });
+            print("$storedata");
   }
 
   
