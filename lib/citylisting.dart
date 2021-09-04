@@ -14,7 +14,7 @@ class _CityListingState extends State<CityListing> {
   var apiDecode = {};
   var stateArr= [];
   List cityArr=[];
-  //var cityDist={};
+  var cityDist={};
   Map<String,dynamic> cityDict= Map<String,dynamic>();
   @override
   void initState() {
