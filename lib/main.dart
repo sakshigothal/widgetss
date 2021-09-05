@@ -5,9 +5,11 @@ import 'package:widgetss/onbording.dart';
 import 'apitest.dart';
 import 'banner.dart';
 import 'citylisting.dart';
+import 'contactus.dart';
 import 'kalyan.dart';
 import 'kalyanapi.dart';
 import 'keyboardexample.dart';
+import 'parentpage.dart';
 import 'splash.dart';
 import 'splashpage.dart';
 import 'webviewpage.dart';
@@ -31,7 +33,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: KalyanapiExample(),
+      home: ParentPage(),
     ),
   );
 }
