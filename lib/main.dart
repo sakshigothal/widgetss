@@ -4,6 +4,7 @@ import 'package:widgetss/onbording.dart';
 
 import 'apitest.dart';
 import 'banner.dart';
+import 'cameragalleryexample.dart';
 import 'citylisting.dart';
 import 'contactus.dart';
 import 'kalyan.dart';
@@ -33,7 +34,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: ParentPage(),
+      home: CameraGalleryExample(),
     ),
   );
 }
