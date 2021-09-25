@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:widgetss/listviewexample.dart';
 import 'package:widgetss/onbording.dart';
+import 'package:widgetss/razorpayexamle.dart';
 
 import 'apitest.dart';
 import 'banner.dart';
@@ -34,7 +35,7 @@ void main() {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: CameraGalleryExample(),
+      home: MyApp(),
     ),
   );
 }

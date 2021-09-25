@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "144401962782",
+    "project_id": "sakshi-ecca7",
+    "storage_bucket": "sakshi-ecca7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144401962782:android:dbd10d5c0f2c86273f5b0f",
+        "android_client_info": {
+          "package_name": "com.example.widgetss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144401962782-lknek5u31tnjm8a68qo352uhhckc91u7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzvDTr8WRt8AdAN8JPPjFIRQ0kI4KMBu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144401962782-lknek5u31tnjm8a68qo352uhhckc91u7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
