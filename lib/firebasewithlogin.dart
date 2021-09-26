@@ -1,59 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-//import 'package:widgetss/listviewexample.dart';
-import 'package:widgetss/onbording.dart';
-import 'package:widgetss/razorpayexamle.dart';
 
-import 'apitest.dart';
-import 'banner.dart';
-import 'cameragalleryexample.dart';
-import 'citylisting.dart';
-import 'contactus.dart';
-import 'firebasewithlogin.dart';
-import 'kalyan.dart';
-import 'kalyanapi.dart';
-import 'keyboardexample.dart';
-import 'parentpage.dart';
-import 'splash.dart';
-import 'splashpage.dart';
-import 'webviewpage.dart';
-//import 'package:widgetss/addition.dart';
-//import 'package:widgetss/login.dart';
-
-//import 'practice.dart';
-//import 'package:widgetss/overlapping.dart';
-//import 'package:widgetss/oddeven.dart';
-
-//import 'swiggy.dart';
-//import 'tiktok.dart';
-//import 'package:widgetss/dicegame.dart';
-
-//import 'pageexample.dart';
-//import 'scrolltest.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(
-    MaterialApp(
-      // theme: ThemeData(
-      //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
-      // ),
-      home: LoginWithFirebase(),
-    ),
-  );
-}
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginWithFirebase extends StatefulWidget {
+  const LoginWithFirebase({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginWithFirebaseState createState() => _LoginWithFirebaseState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController username = TextEditingController();
+class _LoginWithFirebaseState extends State<LoginWithFirebase> {
+  TextEditingController unTEC = TextEditingController();
   TextEditingController pass = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   String msg = "";
   var rem = true;
 
@@ -79,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     TextField(
+                      controller: unTEC,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Enter Name here",
@@ -105,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // print("press");
+                        print("press");
                         // if (username.text.length > 6) {
                         //   print("hey");
                         //   setState(() {
@@ -120,16 +79,15 @@ class _LoginPageState extends State<LoginPage> {
                         //     msg = "WELCOME ${username.text}";
                         //   });
                         // }
+                        register();
                       },
                       child: Text("Hit Me!"),
                     ),
-                    // Checkbox(
-                    //     value: rem,
-                    //     onChanged: (val) {
-                    //       setState(() {
-                    //         this.rem = rem;
-                    //       });
-                    //     }),
+                    ElevatedButton(
+                        onPressed: () {
+                          login();
+                        },
+                        child: Text("Register"))
                   ],
                 ),
               ),
@@ -139,5 +97,45 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  register() async {
+    print("Register ${unTEC.text} .. ${pass.text}");
+    try {
+      UserCredential userCred = await _auth.createUserWithEmailAndPassword(
+          email: unTEC.text, password: pass.text);
+      if (userCred.user != null) {
+        print(userCred.user!.uid);
+        await userCred.user!.sendEmailVerification();
+      } else {
+        print("issue creating an user ${userCred}");
+      }
+    } catch (e) {
+      print("$e");
+      SnackBar snack = SnackBar(
+        content: Text(e.toString()),
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+    }
+  }
+
+  login() async {
+    print("Register ${unTEC.text} .. ${pass.text}");
+    // await _auth.sendPasswordResetEmail(email: unTEC.text);
+    // return;
+    try {
+      UserCredential userCred = await _auth.createUserWithEmailAndPassword(
+          email: unTEC.text, password: pass.text);
+      if (userCred.user != null) {
+        print(userCred.user!.uid);
+        print("isEmailVerified ${userCred.user!.emailVerified}");
+      } else {
+        print("issue creating an user ${userCred}");
+      }
+    } catch (e) {
+      print("$e");
+    }
   }
 }

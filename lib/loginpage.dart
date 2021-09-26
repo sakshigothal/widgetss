@@ -47,11 +47,11 @@ class _LoginPageState extends State<LoginPage> {
                     TextField(
                       controller: username,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Enter Username Here",
-                          labelText: "USERNAME",
-                          prefixIcon: Icon(Icons.verified_user),
-                          suffixIcon: Icon(Icons.check)),
+                        border: OutlineInputBorder(),
+                        hintText: "Enter Username Here",
+                        labelText: "USERNAME",
+                        prefixIcon: Icon(Icons.verified_user),
+                      ),
                     ),
                     SizedBox(
                       height: 20,
@@ -65,7 +65,6 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Password Here",
                         labelText: "PASSWORD",
                         prefixIcon: Icon(Icons.password),
-                        suffixIcon: Icon(Icons.check,color: Colors.red,),
                       ),
                     ),
                     SizedBox(
@@ -73,14 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Row(
                       children: [
-                        Checkbox(
-                          value: rem,
-                          onChanged: (value) {
-                            setState(() {
-                              rem = value!;
-                            });
-                          },
-                        ),
+                        // Checkbox(
+                        //   value: rem,
+                        //   onChanged: (value) {
+                        //     setState(() {
+                        //       rem = value!;
+                        //     });
+                        //   },
+                        // ),
                         Text("Remember choice"),
                         SizedBox(
                           width: 70,
@@ -90,21 +89,22 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        if (username.text.length < 6) {
-                          setState(() {
-                            msg = "Enter Username";
-                          });
-                         
-                        } else if (password.text.length < 6) {
-                          setState(() {
-                            msg = "Enter Password";
-                          });
-                          
-                        } else {
-                          setState(() {
-                            msg="Welcome ${username.text}";
-                          });
-                        }
+                        setState(() {
+                          msg = "Welcome $username";
+                        });
+                        // if (username.text.length > 6) {
+                        //   setState(() {
+                        //     msg = "Enter Username";
+                        //   });
+                        // } else if (password.text.length > 6) {
+                        //   setState(() {
+                        //     msg = "Enter Password";
+                        //   });
+                        // } else {
+                        //   setState(() {
+                        //     msg = "Welcome ${username.text}";
+                        //   });
+                        // }
                       },
                       child: Text(
                         "Submit",
@@ -115,16 +115,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Text(msg),
-                              FloatingActionButton(onPressed: (){},child: Icon(Icons.add),)
-
+            // FloatingActionButton(
+            //   onPressed: () {},
+            //   child: Icon(Icons.add),
+            // )
           ],
         ),
       ),
     );
-  }
-  chagecolor(){
-    if(username.text.length<6 && username.text.length<6){
-       Icon(Icons.check,color: Colors.green,);
-    }
   }
 }
