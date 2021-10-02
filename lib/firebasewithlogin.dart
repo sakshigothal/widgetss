@@ -84,10 +84,28 @@ class _LoginWithFirebaseState extends State<LoginWithFirebase> {
                       child: Text("Hit Me!"),
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          login();
-                        },
-                        child: Text("Register"))
+                      onPressed: () {
+                        login();
+                      },
+                      child: Text("Register"),
+                    ),
+                    TextField(
+                      // obscuringCharacter: "*",
+                      obscureText: true,
+                      controller: pass,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter Password Here",
+                        prefixIcon: Icon(Icons.verified_user),
+                        // suffixIcon: Icon(Icons.verified_user_sharp),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        login();
+                      },
+                      child: Text("Register"),
+                    ),
                   ],
                 ),
               ),
@@ -137,5 +155,23 @@ class _LoginWithFirebaseState extends State<LoginWithFirebase> {
     } catch (e) {
       print("$e");
     }
+  }
+
+  sendOtp() async {
+    print("send otp");
+    _auth.verifyPhoneNumber(
+        phoneNumber: "+919892426230",
+        verificationCompleted: (cred) {
+          print("verificationCompleted ${cred.smsCode}");
+        },
+        verificationFailed: (ex) {
+          print("verificationFailed ${ex.message}");
+        },
+        codeSent: (code, len) {
+          print("codeSent");
+        },
+        codeAutoRetrievalTimeout: (timeout) {
+          print("codeAutoRetrievalTimeout");
+        });
   }
 }
