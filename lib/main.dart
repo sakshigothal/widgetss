@@ -1,11 +1,18 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:widgetss/hive.dart';
+import 'package:widgetss/models/person.dart';
 import 'package:widgetss/notificationtest.dart';
 //import 'package:widgetss/listviewexample.dart';
 import 'package:widgetss/onbording.dart';
+import 'package:widgetss/personAdd.dart';
+import 'package:widgetss/personListing.dart';
 import 'package:widgetss/razorpayexamle.dart';
 import 'package:widgetss/realtimeExample.dart';
+import 'package:widgetss/slqexample.dart';
 
 import 'apitest.dart';
 import 'banner.dart';
@@ -40,6 +47,11 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // make sure you call `initializeApp` before using other Firebase services.
   await Firebase.initializeApp();
   print('Handling a background message ${message.messageId}');
+  var dir = await getApplicationDocumentsDirectory();
+  Hive.init(dir.path);
+  Hive.registerAdapter(PersonAdapter());
+
+  var box = await Hive.openBox('personBox');
 }
 
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
@@ -56,13 +68,14 @@ Future<void> main() async {
     importance: Importance.high,
   );
 
+  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
   await flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
           AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     sound: true,
@@ -74,7 +87,7 @@ Future<void> main() async {
       // theme: ThemeData(
       //   elevatedButtonTheme:ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: Colors.red))
       // ),
-      home: NotificationTest(),
+      home: SqlExample(),
     ),
   );
 }
